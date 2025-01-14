@@ -1,4 +1,4 @@
-//© A+ Computer Science  -  www.apluscompsci.com
+//ï¿½ A+ Computer Science  -  www.apluscompsci.com
 //Name -
 //Date -
 //Class -
@@ -15,8 +15,13 @@ public class ArrayFunHouseTwo
 	//[9, 11, 13, 8]  returns false
 	public static boolean goingUp(int[] numArray)
 	{
+		int length = 0;
+		for(int i = 0; i < numArray.length-1; i++)
+			if(numArray[i] < numArray[i + 1])
+				length++;
 
-		return true;
+
+		return numArray.length-1 == length;
 	}
 
 	//goingDown() will return true if all numbers
@@ -25,8 +30,12 @@ public class ArrayFunHouseTwo
 	//[31, 20, 10, 15, 9] returns false
 	public static boolean goingDown(int[] numArray)
 	{
-
-		return true;
+		int length = 0;
+		for(int i = 0; i < numArray.length-1; i++)
+			if(numArray[i] > numArray[i+1])
+				length++;
+				
+		return numArray.length-1 == length;
 	}
 
 	//getValuesBiggerThanX will return an array that contains
@@ -34,6 +43,14 @@ public class ArrayFunHouseTwo
 	//[1,2,3,4,5,6,7,8,9,10,11,6],3,5  would return [6,7,8]
 	public static int[] getCountValuesBiggerThanX(int[] numArray, int count, int x)
 	{
-		return null;
+		int length = 0;
+		int[] newArray = new int[count];
+		for(int i = 0; length < count; i++)
+			if(x < numArray[i]){
+				newArray[length] = numArray[i];
+				length++;
+			}
+
+		return newArray;
 	}
 }
